@@ -14,7 +14,7 @@ export class LogoutComponent {
 
   onLogout(): void {
     this.viewCtrl.dismiss().then(() => {
-      this.navCtrl.setRoot(LoginPage, {'loggedOut': true});
+      this.navCtrl.setRoot(LoginPage, {loggedOut: true});
     });
   }
 
