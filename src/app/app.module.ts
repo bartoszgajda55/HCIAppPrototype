@@ -13,6 +13,7 @@ import {AddPage} from "../pages/add/add";
 import {LoginPage} from "../pages/login/login";
 import {RegisterPage} from "../pages/register/register";
 import {SearchPage} from "../pages/search/search";
+import {LogoutComponent} from "../components/logout/logout";
 
 const PAGES = [
   MyApp,
@@ -22,7 +23,8 @@ const PAGES = [
   AddPage,
   LoginPage,
   RegisterPage,
-  SearchPage
+  SearchPage,
+  LogoutComponent
 ];
 
 @NgModule({

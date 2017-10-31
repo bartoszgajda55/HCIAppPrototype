@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, PopoverController} from 'ionic-angular';
+import {LogoutComponent} from "../../components/logout/logout";
 
 @Component({
   selector: 'page-home',
@@ -7,8 +8,13 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              private popoverCtrl: PopoverController) {
+  }
 
+  onShowOption(event: MouseEvent): void {
+    let popover = this.popoverCtrl.create(LogoutComponent);
+    popover.present({ev: event});
   }
 
 }
