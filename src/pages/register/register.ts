@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {NgForm} from "@angular/forms";
 import {TabsPage} from "../tabs/tabs";
 
@@ -10,10 +10,19 @@ import {TabsPage} from "../tabs/tabs";
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private loadingCtrl: LoadingController) {
   }
 
   onRegister(form: NgForm): void {
-    this.navCtrl.setRoot(TabsPage)
+    let loading = this.loadingCtrl.create({
+      content: 'Registering...',
+      duration: 1000
+    });
+    loading.present();
+    setTimeout(() => {
+      this.navCtrl.setRoot(TabsPage);
+    }, 1000);
   }
 }
