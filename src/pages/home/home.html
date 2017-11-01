@@ -9,6 +9,28 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content padding class="background">
+  <ion-card *ngFor="let post of posts | async">
+    <img [src]="post.pathToImage" alt="" class="image">
+    <ion-card-header>
+      {{post.author}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-title>
+        {{post.title}}
+      </ion-card-title>
+      <p>
+        {{post.description}}
+      </p>
+    </ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button clear icon-only>
+            <ion-icon name="thumbs-up"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

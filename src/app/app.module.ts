@@ -14,6 +14,8 @@ import {LoginPage} from "../pages/login/login";
 import {RegisterPage} from "../pages/register/register";
 import {SearchPage} from "../pages/search/search";
 import {LogoutComponent} from "../components/logout/logout";
+import { PostsProvider } from '../providers/posts/posts';
+import {HttpModule} from "@angular/http";
 
 const PAGES = [
   MyApp,
@@ -31,6 +33,7 @@ const PAGES = [
   declarations: PAGES,
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -38,7 +41,8 @@ const PAGES = [
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PostsProvider
   ]
 })
 export class AppModule {}
