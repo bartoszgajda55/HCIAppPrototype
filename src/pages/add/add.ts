@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AddPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {IonicPage, LoadingController, NavController, NavParams, PopoverController} from 'ionic-angular';
+import {LogoutComponent} from "../../components/logout/logout";
+import {NgForm} from "@angular/forms";
+import {HomePage} from "../home/home";
 
 @IonicPage()
 @Component({
@@ -14,12 +10,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add.html',
 })
 export class AddPage {
+  instagram: boolean = false;
+  facebook: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private popoverCtrl: PopoverController,
+              private loadingCtrl: LoadingController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPage');
+  onShowOption(event: MouseEvent): void {
+    let popover = this.popoverCtrl.create(LogoutComponent);
+    popover.present({ev: event});
+  }
+
+  onSelectImage(): void {
+  }
+
+  onAddPost(form: NgForm): void {
+
+    let loading = this.loadingCtrl.create({
+      content: 'Adding post...',
+      duration: 1000
+    });
+    loading.present();
+    setTimeout(() => {
+      this.navCtrl.parent.select(0);
+    }, 1000);
   }
 
 }

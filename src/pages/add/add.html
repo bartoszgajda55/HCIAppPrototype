@@ -1,18 +1,61 @@
-<!--
-  Generated template for the AddPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Add</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onShowOption($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content class="background">
+  <form #f="ngForm" (ngSubmit)="onAddPost(f)">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img src="assets/post-images/img2.png" alt="" class="image" (click)="onSelectImage()">
+        </ion-col>
+      </ion-row>
+      <ion-list>
+        <ion-row>
+          <ion-col>
+            <ion-item class="item-round">
+              <ion-input ngModel name="title" type="text" placeholder="Title" required></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item class="item-round">
+              <ion-textarea ngModel name="description" placeholder="Description" required></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item class="item-round">
+              <ion-label icon-only>
+                <ion-icon name="logo-facebook" class="icon"></ion-icon>
+              </ion-label>
+              <ion-toggle [(ngModel)]="facebook" name="facebook" checked="false"></ion-toggle>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item class="item-round">
+              <ion-label icon-only>
+                <ion-icon name="logo-instagram" class="icon"></ion-icon>
+              </ion-label>
+              <ion-toggle [(ngModel)]="instagram" name="instagram" checked="false"></ion-toggle>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button ion-button block type="submit" color="light" [disabled]="!f.valid">Share</button>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </ion-grid>
+  </form>
 </ion-content>
