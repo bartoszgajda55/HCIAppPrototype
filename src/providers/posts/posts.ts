@@ -12,7 +12,11 @@ export class PostsProvider {
   }
 
   getPosts(): Post[] {
-    return this.posts;
+    return this.posts.slice();
+  }
+
+  addNewPost(post: Post): void {
+    this.posts.push(post);
   }
 
 }

@@ -3,7 +3,6 @@ import {NavController, PopoverController} from 'ionic-angular';
 import {LogoutComponent} from "../../components/logout/logout";
 import {PostsProvider} from "../../providers/posts/posts";
 import {Post} from "../../models/post.model";
-import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'page-home',
@@ -17,7 +16,7 @@ export class HomePage {
               private postsProvider: PostsProvider) {
   }
 
-  ionViewWillEnter(): void {
+  ionViewDidEnter(): void {
     this.posts = this.postsProvider.getPosts();
   }
 
