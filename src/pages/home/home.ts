@@ -10,7 +10,7 @@ import {Observable} from "rxjs/Observable";
   templateUrl: 'home.html'
 })
 export class HomePage {
-  private posts: Observable<Post[]>;
+  posts: Post[];
 
   constructor(public navCtrl: NavController,
               private popoverCtrl: PopoverController,
