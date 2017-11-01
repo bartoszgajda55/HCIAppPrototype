@@ -17,7 +17,7 @@ export class LoginPage {
               private toastCtrl: ToastController) {
   }
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
     if (this.navParams.get('loggedOut')) {
       let toast = this.toastCtrl.create({
         message: 'Logout Successful !',
