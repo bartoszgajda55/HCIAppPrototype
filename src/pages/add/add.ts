@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {IonicPage, LoadingController, NavController, NavParams, PopoverController} from 'ionic-angular';
 import {LogoutComponent} from "../../components/logout/logout";
 import {NgForm} from "@angular/forms";
-import {HomePage} from "../home/home";
 import {Post} from "../../models/post.model";
 import {PostsProvider} from "../../providers/posts/posts";
 
