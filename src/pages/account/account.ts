@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AccountPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {IonicPage, NavController, NavParams, PopoverController} from 'ionic-angular';
+import {LogoutComponent} from "../../components/logout/logout";
 
 @IonicPage()
 @Component({
@@ -15,11 +9,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AccountPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private popoverCtrl: PopoverController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AccountPage');
+  onShowOption(event: MouseEvent): void {
+    let popover = this.popoverCtrl.create(LogoutComponent);
+    popover.present({ev: event});
   }
-
 }
