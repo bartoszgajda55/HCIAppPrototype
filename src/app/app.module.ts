@@ -16,6 +16,7 @@ import {SearchPage} from "../pages/search/search";
 import {LogoutComponent} from "../components/logout/logout";
 import { PostsProvider } from '../providers/posts/posts';
 import {HttpModule} from "@angular/http";
+import { UserProvider } from '../providers/user/user';
 
 const PAGES = [
   MyApp,
@@ -42,7 +43,8 @@ const PAGES = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PostsProvider
+    PostsProvider,
+    UserProvider
   ]
 })
 export class AppModule {}
