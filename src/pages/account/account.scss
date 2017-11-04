@@ -2,4 +2,20 @@ page-account {
   .background {
     background: color($colors, primary);
   }
+  ion-row {
+    background-color: #FFF;
+  }
+  .row-divider {
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  .icon {
+    font-size: 30px;
+  }
+  h1 {
+    margin: 0 auto;
+  }
+  p {
+    font-size: 16px;
+  }
 }
